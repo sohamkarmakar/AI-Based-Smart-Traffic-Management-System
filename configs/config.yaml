@@ -1,0 +1,68 @@
+# AI-Based Smart Traffic Management System Configuration
+
+project:
+  name: "Smart Traffic Management System"
+  version: "1.0.0"
+  description: "Congestion prediction, density analysis, and traffic signal optimization."
+
+database:
+  db_path: "outputs/traffic_management.db"
+  backup_dir: "outputs/backups"
+
+paths:
+  raw_data_dir: "datasets/raw"
+  processed_data_dir: "datasets/processed"
+  models_dir: "models/trained"
+  checkpoints_dir: "models/checkpoints"
+  logs_dir: "outputs/logs"
+  predictions_dir: "outputs/predictions"
+  reports_dir: "outputs/reports"
+
+density_analysis:
+  # Passenger Car Unit (PCU) equivalents for traffic density scoring
+  vehicle_weights:
+    car: 1.0
+    bike: 0.2
+    bus: 2.5
+    truck: 3.0
+  # Congestion categories based on density score ranges
+  thresholds:
+    low: 30.0
+    normal: 75.0
+    high: 120.0
+    # any score above 120 is heavy
+
+signal_optimization:
+  min_green_time: 15  # seconds
+  max_green_time: 90  # seconds
+  base_yellow_time: 4 # seconds
+  base_red_time: 2    # seconds
+  pcu_per_second: 0.15 # flow rate of vehicles crossing per second of green light
+
+ml_models:
+  random_state: 42
+  test_size: 0.2
+  classification:
+    target: "Traffic Situation"
+    features:
+      - "CarCount"
+      - "BikeCount"
+      - "BusCount"
+      - "TruckCount"
+      - "Hour"
+      - "DayOfWeek"
+      - "IsWeekend"
+      - "IsPeakHour"
+      - "DensityScore"
+  regression:
+    target: "Total"
+    features:
+      - "Hour"
+      - "DayOfWeek"
+      - "IsWeekend"
+      - "IsPeakHour"
+      - "CarCount"
+      - "BikeCount"
+      - "BusCount"
+      - "TruckCount"
+      - "DensityScore"

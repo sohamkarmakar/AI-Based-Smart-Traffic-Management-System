@@ -1,0 +1,78 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IDEs
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# SQLite database files
+*.db
+*.sqlite3
+
+# Log files
+*.log
+outputs/logs/*
+
+# Datasets - raw and processed files should be fetched/generated locally
+datasets/raw/*
+datasets/processed/*
+!datasets/README.md
+
+# Models - exclude large binary weights
+models/trained/*
+models/checkpoints/*
+!models/trained/.gitkeep
+!models/checkpoints/.gitkeep
+
+# Output predictions and reports
+outputs/predictions/*
+outputs/reports/*
+!outputs/predictions/.gitkeep
+!outputs/reports/.gitkeep
+
+# Streamlit config
+.streamlit/
+
+# Root dataset files
+Traffic.csv
+TrafficTwoMonth.csv
+
